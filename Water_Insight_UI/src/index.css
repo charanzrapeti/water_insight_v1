@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  body ::-webkit-scrollbar-track {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  body ::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.1);
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  body ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0,0,0,.1);
+  }
+
+  label {
+    @apply block mb-2;
+  }
+
+  input,
+  textarea {
+    @apply 
+      block w-full px-3 py-2 
+      text-sm text-gray-900 rounded 
+      focus:outline-none border border-[#EBEBEB]
+      placeholder:text-[#999CA0]
+    ;
+  }
+
+  select {
+    @apply w-full pl-4 pr-6 py-1.5 border appearance-none rounded focus:outline-none
+    bg-no-repeat border-[#EBEBEB] bg-[url('./assets/img/dropdown-arrow.png')];
+    background-position: 94%;
+    background-size: 16px;
+  }
+
+  button {
+    @apply inline-block px-4 py-1 w-fit cursor-pointer rounded-md;
+  }
+
+  svg {
+    @apply w-6 h-6 cursor-pointer;
+  }
+}
+
+
+@layer components {
+  .df,
+  .dfc,
+  .dc {
+    @apply flex gap-2;
+  }
+
+  .df, .dc {
+    @apply items-center;
+  }
+
+  .dfc {
+    @apply flex-col;
+  }
+
+  .dc {
+    @apply justify-center;
+  }
+
+  .scroll-y {
+    @apply flex-1 overflow-y-auto;
+  }
+
+  .no-scroll-bar::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+
+  .mini-scroll-bar::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+
+
+  /* input number hide arrows - Chrome, Safari, Edge, Opera */
+  .no-number-arrows::-webkit-outer-spin-button,
+  .no-number-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* input number hide arrows - Firefox */
+  .no-number-arrows {
+    -moz-appearance: textfield;
+  }
+
+  .grid-col-full {
+    grid-column: 1 / -1;
+  }
+
+  /* css loader */
+  .loader {
+    @apply 
+      w-10 h-10 border-4 animate-spin rounded-full 
+      border-primary-100 border-t-primary-600
+    ;
+  }  
+  
+
+  /* DropDown */
+  .DropDownBtn {
+    @apply 
+      w-full focus:outline-0
+      py-1 px-2 text-sm 2xl:text-[15px] rounded 
+    ;
+  }
+
+  .DropDownBtn:not(.active){
+    @apply 
+      hover:bg-primary-100 hover:text-primary-600 
+      focus:bg-primary-100 focus:text-primary-600 
+      active:bg-primary-100 active:text-primary-600 
+    ;
+  }
+
+  .DropDownBox {
+    @apply 
+      gap-0.5 p-2 min-w-[110px] z-10 focus:outline-0 shadow-spread
+      rounded bg-white border border-white
+    ;
+  }
+
+  .DropDownArrow {
+    @apply bg-inherit w-4 h-4 rotate-45 -z-1 border border-inherit;
+  }
+
+
+  /* Modal */
+  .modal-wrapper {
+    @apply relative z-50;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-25;
+  }
+    
+  .modal-content {
+    @apply p-4 lg:p-6 rounded-2xl bg-white shadow-xl transition-all;
+  }  
+
+
+  /* Tab */
+  .tab-list-wrapper {
+    @apply border-b border-[hsl(0,0%,77%,.31)];
+  }
+  
+  .tab span {
+    @apply 
+      absolute block -bottom-px left-0 w-full h-1 
+      rounded-sm bg-primary-600
+    ;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all .3s ease-in-out;
+  }
+  
+  .tab.selected span {
+    transform: scaleX(1);
+  }
+
+    
+  .theme-btn {
+    @apply text-white bg-primary-600 hover:bg-primary-500;
+  }
+
+  .app-sb-ic-fill {
+    @apply fill-[#5D7285];
+  }
+
+  .app-sb-ic-stroke {
+    @apply stroke-[#5D7285];
+  }
+
+  .active .app-sb-ic-fill {
+    @apply fill-primary-600;
+  }
+
+  .active .app-sb-ic-stroke {
+    @apply stroke-primary-600;
+  }
+}
+
+
+/* root constants */
+:root {
+  --toastify-icon-color-success: #5DC90A;
+  --toastify-text-color-light: #6C6D6D;  
+  --toastify-toast-min-height: 34px;
+  --toastify-toast-width: 100vw;
+}
+
+
+/* Toastify Confiuration */
+.Toastify__toast {
+  @apply w-fit px-1 py-2 rounded-full;
+  margin: 0 auto .8rem;
+  font-size: 14px;
+}
+
+.Toastify__toast-icon {
+  margin-inline-end: 6px;
+}
+
+.Toastify__toast-icon svg {
+  height: 18px;
+  width: 18px;
+}
+
+.Toastify__toast-body {
+  padding: 0 6px;
+}
+
+.Toastify__close-button {
+  display: none;
+}
+
+
+.auth-bg {
+  background: url(./assets/img/img2.jpg) no-repeat center/cover;
+  filter: grayscale(.3);
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    'nav nav'
+    'sidebar main'
+  ;
+}
+
+.app-wrapper > nav {
+  grid-area: nav;
+}
+
+.app-wrapper > aside {
+  grid-area: sidebar;
+}
+
+.app-wrapper > section {
+  grid-area: main;
+}

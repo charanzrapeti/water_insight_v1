@@ -1,0 +1,54 @@
+version: '3.3'
+services:
+  backend:
+    build:
+      context: ./waterinsight_backend
+    container_name: node-backend 
+    ports:
+      - "4000:4000"
+    environment:
+      # Other environment variables
+      CLIENT_ID: "597586763006-apkd4fmh7qim17rnf48itb4qrbidcng6.apps.googleusercontent.com"
+      CLIENT_SECRET: "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"
+      REDIRECT_URL: "https://developers.google.com/oauthplayground"
+      REFRESH_TOKEN: "1//04sZXOK54GdytCgYIARAAGAQSNwF-L9Irx_W8MwezWqO3bz6xYUuFOHE2dhMimdufvfRC7nexO--KWYRkbYA3gCdMII1-NEjLqk0"
+      JWT_SECRET: "ISBwaterzincolSECRET"
+      THINGSPEAK_API_URL: "https://api.thingspeak.com/channels/2002408/feeds.json?api_key=N6ZF1SSU0TB7YHDH"
+      PYTHON_SERVER_URL: "http://127.0.0.1:5000/iot-image-processing"
+      IMAGES_DIR: "/home/isbcharan/Desktop/IGC/water-insight/waterinsight_backend/public/"
+    volumes:
+      - ./waterinsight_backend:/backend  # Bind-mount the backend directory
+    networks:
+      - mern-network
+
+  frontend:
+    build:
+      context: ./Water_Insight_UI
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      ENV BACKEND_URL: "http://backend:4000/api"
+    volumes:
+      - ./frontend:/frontend  # Bind-mount the frontend directory
+    networks:
+      - mern-network
+
+  flaskserver:
+    build:
+      context: ./water_image_processing
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./water_image_processing:/flaskserver
+
+networks:
+  mern-network:
+    driver: bridge
+
+
+
+
+

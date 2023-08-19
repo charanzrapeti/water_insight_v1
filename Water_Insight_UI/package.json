@@ -1,0 +1,58 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@floating-ui/react-dom-interactions": "^0.13.3",
+    "@headlessui/react": "^1.7.9",
+    "@tanstack/react-query": "^4.26.1",
+    "@tanstack/react-query-devtools": "^4.26.1",
+    "axios": "^1.3.4",
+    "chart.js": "^4.2.0",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.3.1",
+    "html-to-image": "^1.11.11",
+    "js-cookie": "^3.0.1",
+    "keen-slider": "^6.8.5",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.10.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.4",
+    "react-merge-refs": "^2.0.1",
+    "react-router-dom": "^6.7.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
+    "web-vitals": "^2.1.4",
+    "web3": "^1.8.2",
+    "zustand": "^4.3.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
